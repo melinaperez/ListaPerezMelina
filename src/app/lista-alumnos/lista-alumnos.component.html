@@ -1,13 +1,9 @@
 <img [src]="urlImagen" height="150px" width="200px" />
 <h1>Listado de Alumnos</h1>
 <br />
-<button (click)="mostrarListaAlumnos()" *ngIf="!mostrarAlumnos">
-  Mostrar Alumnos
+<button (click)="mostrarListaAlumnos()">
+  {{ !mostrarAlumnos ? "Mostrar Alumnos" : "Ocultar Alumnos" }}
 </button>
-<button (click)="mostrarListaAlumnos()" *ngIf="mostrarAlumnos">
-  Ocultar Alumnos
-</button>
-
 <ul *ngIf="mostrarAlumnos">
   <li
     [ngStyle]="{ backgroundColor: alumno.tieneDeuda ? '#F0394D' : '#67CB57' }"
