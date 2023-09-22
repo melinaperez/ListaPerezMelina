@@ -1,0 +1,20 @@
+<img [src]="urlImagen" height="150px" width="200px" />
+<h1>Listado de Alumnos</h1>
+<br />
+<button (click)="mostrarListaAlumnos()" *ngIf="!mostrarAlumnos">
+  Mostrar Alumnos
+</button>
+<button (click)="mostrarListaAlumnos()" *ngIf="mostrarAlumnos">
+  Ocultar Alumnos
+</button>
+
+<ul *ngIf="mostrarAlumnos">
+  <li
+    [ngStyle]="{ backgroundColor: alumno.tieneDeuda ? '#F0394D' : '#67CB57' }"
+    *ngFor="let alumno of alumnos"
+  >
+    {{ alumno.apellido | uppercase }}, {{ alumno.nombre }} - Fecha nacimiento:
+    {{ alumno.fechaNacimiento | date : "d/M/yy" }} - Precio cuota:
+    {{ alumno.precioCuota | currency }}
+  </li>
+</ul>
